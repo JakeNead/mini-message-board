@@ -6,6 +6,17 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <main>
+      <ul>
+        <% messages.forEach(message => { %>
+          <li>
+            <h2><%= message.user %></h2>
+            <p><%= message.text %></p>
+            <p><%= message.added.toLocaleDateString() %>, <%= message.added.toLocaleTimeString() %></p>
+          </li>
+          <% }); %>
+      </ul>
+      <a href="/new"><button >New Message</button></a>
+    </main>
   </body>
 </html>
