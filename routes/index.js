@@ -1,12 +1,17 @@
 const messages = [
   {
-    text: "I'll show you the wrong side of a knuckle!",
-    user: "Amando",
+    text: "You're a Jedi, Harry.",
+    user: "Gandalf",
     added: new Date(),
   },
   {
     text: "You look like a flat soda, pal.",
-    user: "Charles",
+    user: "Charles Barkley",
+    added: new Date(),
+  },
+  {
+    text: "Third message",
+    user: "Dev",
     added: new Date(),
   },
 ];
