@@ -21,7 +21,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Mini Messageboard", messages: messages });
+  res.render("index", { title: "Mini-Message Board", messages: messages });
 });
 
 /* GET new message page. */
