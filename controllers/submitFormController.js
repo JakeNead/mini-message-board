@@ -9,7 +9,7 @@ const submitFormController = (req, res) => {
     added: new Date(),
     id: crypto.randomUUID(),
   });
-  res.redirect("/");
+  res.redirect("/messages");
 };
 
 module.exports = submitFormController;
