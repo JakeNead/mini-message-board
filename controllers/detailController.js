@@ -1,8 +1,7 @@
-const messages = require("../messages");
+const db = require("../db/queries");
 
-const detailController = (req, res) => {
-  const message = messages.find((message) => message.id === req.params.id);
-
+const detailController = async (req, res) => {
+  const message = await db.messageDetail(req.params.id);
   res.render("details", { title: "Message Details", message: message });
 };
 

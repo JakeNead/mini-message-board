@@ -1,14 +1,16 @@
-const messages = require("../messages");
+// const messages = require("../messages");
+const db = require("../db/queries");
 
-const submitFormController = (req, res) => {
-  //add contents to messages then redirect
+function formatDateToUTC(date) {
+  return date.toISOString().slice(0, 19).replace("T", " ");
+}
 
-  messages.push({
-    text: req.body.message,
-    user: req.body.user,
-    added: new Date(),
-    id: crypto.randomUUID(),
-  });
+const submitFormController = async (req, res) => {
+  await db.newMessage(
+    req.body.user,
+    req.body.message,
+    formatDateToUTC(new Date())
+  );
   res.redirect("/messages");
 };
 

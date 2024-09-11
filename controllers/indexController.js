@@ -1,14 +1,10 @@
-const messages = require("../messages");
-const { DateTime } = require("luxon");
+const db = require("../db/queries");
 
-const indexController = (req, res) => {
-  const messagesCopy = [...messages];
-  messagesCopy.forEach((message) => {
-    message.added = DateTime.now(message.added).toLocaleString(
-      DateTime.DATE_MED
-    );
+const indexController = async (req, res) => {
+  const messages = await db.getAllMessages();
+  res.render("index", {
+    title: "Mini Message Board",
+    messages: messages,
   });
-
-  res.render("index", { title: "Mini Message Board", messages: messagesCopy });
 };
 module.exports = indexController;
